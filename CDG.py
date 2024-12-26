@@ -1,5 +1,10 @@
 NUM_CLASSES = 2
 CLASS_NAMES = [ 'BG', 'Crack']
+perturb_steps=5
+epsilon=0.102 
+step_size = 0.051 / 4
+loss_fn="cent"
+category="Madry"
 
 def FGA_PGD(model, data, target, epsilon, step_size, num_steps,loss_fn,category,rand_init):
     model.eval()
