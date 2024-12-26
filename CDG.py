@@ -52,9 +52,9 @@ def FGA_PGD(model, data, target, epsilon, step_size, num_steps,loss_fn,category,
           expected_GA = (GA_Cur * confidence).sum()/GA_Cur.sum()
           GA_List.append(expected_GA)     
 
-  loss_gacl = 0
+  loss_aicl = 0
   for ind in range(len(GA_List)-1):
       if GA_List[ind]> GA_List[ind+1]:
-          loss_gacl = loss_gacl + criterionL1(GA_List[ind],GA_List[ind+1].detach().clone())  #.detach().clone()
+          loss_aicl = loss_aicl + criterionL1(GA_List[ind],GA_List[ind+1].detach().clone())  #.detach().clone()
 
-  print("loss_gacl",loss_gacl)
+  print("loss_aicl",loss_aicl)
